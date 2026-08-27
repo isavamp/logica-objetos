@@ -16,6 +16,18 @@ causaDano(personagem){
         this.life = "morreu"
     }
 }
+estaVivo(){
+return this.vida > 0 
+}
+
+mostraStatus(){
+console.log(this.name + " | Vida: " + this.vida)
+
+}
+
+
+
+
 }
 const druida = new Personagem("Obin", 100, 15)
 const guerreiro = new Personagem("Gaia", 60, 20)
@@ -26,12 +38,9 @@ const dragao = new Personagem("Shibuya", 200, 80)
 const mutante = new Personagem("tempestade", 70, 50)
 
 
-console.log(druida)
-console.log(guerreiro)
-console.log(mago)
-console.log(arqueiro)
-console.log(elfo)
-console.log(dragao)
-console.log(mutante)
 
-dragao.causaDano(mago)
+mago.causaDano(arqueiro)
+mago.causaDano(arqueiro)
+druida.causaDano(arqueiro)
+arqueiro.mostraStatus()
+console.log(arqueiro.estaVivo())
