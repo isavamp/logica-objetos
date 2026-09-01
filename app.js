@@ -2,8 +2,22 @@ class Personagem{
 constructor(name,life,atack,defesa){
     this.name = name
     this.life = life
+    this.vidaMax = this.vidaMax;
     this.atack = atack
     this.defesa = defesa
+}
+
+curar(quantidade){
+this.life = this.life + quantidade
+
+if(this.life > this.vidaMax){
+this.life = this.vidaMax
+
+}
+
+
+
+
 }
 
 causaDano(personagem){
@@ -31,12 +45,17 @@ console.log(this.name + " | Vida: " + this.life)
 
 }
 
+}
 
-
+class Guerreiro extends Personagem {
+golpePesado(personagem){
+    personagem.recebeDano(this.atack * 2)
+}
 
 }
+
 const druida = new Personagem("Obin", 100, 15, 8)
-const guerreiro = new Personagem("Gaia", 60, 20, 15)
+const guerreiro = new Guerreiro("Gaia", 60, 20, 15)
 const mago = new Personagem("Feiticeira", 30, 35, 25)
 const arqueiro = new Personagem("Akaith", 80, 25, 12)
 const elfo = new Personagem("Drazio", 35, 15, 12)
@@ -45,8 +64,5 @@ const mutante = new Personagem("tempestade", 70, 50, 46)
 
 
 
-mago.causaDano(arqueiro)
-mago.causaDano(arqueiro)
-druida.causaDano(arqueiro)
+guerreiro.golpePesado(arqueiro)
 arqueiro.mostraStatus()
-console.log(arqueiro.estaVivo())
