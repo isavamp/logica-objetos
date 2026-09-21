@@ -1,17 +1,17 @@
 class Personagem{
-constructor(name,life,atack,defesa){
+constructor(name,vida,ataque,defesa){
     this.name = name
-    this.life = life
-    this.vidaMax = life
-    this.atack = atack
+    this.vida = vida
+    this.vidaMax = vida
+    this.ataque = ataque
     this.defesa = defesa
 }
 
 curar(quantidade){
-this.life = this.life + quantidade
+this.vida = this.vida + quantidade
 
-if(this.life > this.vidaMax){
-this.life = this.vidaMax
+if(this.vida > this.vidaMax){
+this.vida = this.vidaMax
 
 }
 
@@ -21,7 +21,7 @@ this.life = this.vidaMax
 }
 
 causaDano(personagem){
- personagem.recebeDano(this.atack)
+ personagem.recebeDano(this.ataque)
 
 }
  recebeDano(quantidade){
@@ -30,18 +30,18 @@ causaDano(personagem){
     dano = 0
     }
 
-    this.life = this.life - dano
+    this.vida = this.vida - dano
 
-     if(this.life <=0){
-        this.life = "morreu"
+     if(this.vida <=0){
+        this.vida = "morreu"
     }
 }
 estaVivo(){
-return this.life > 0 
+return this.vida > 0 
 }
 
 mostraStatus(){
-console.log(this.name + " | Vida: " + this.life)
+console.log(this.name + " | Vida: " + this.vida)
 
 }
 
@@ -53,7 +53,7 @@ constructor(name){
 }
 
 golpePesado(personagem){
-    personagem.recebeDano(this.atack * 2)
+    personagem.recebeDano(this.ataque * 2)
 }
 
 }
@@ -80,5 +80,24 @@ personagens.forEach(function(personagem){
 personagem.mostraStatus()
 
 })
+let turno = 1
+let jogadorAtual = 0
 
-console.log(guerreiro)
+
+function proximoTurno(){
+turno = turno + 1
+jogadorAtual = jogadorAtual === 0 ? 1 : 0
+
+}
+
+
+const vidaGuerreiro = document.getElementById("vida-guerreiro")
+vidaGuerreiro.innerText = guerreiro.vida
+
+const ataqueGuerreiro = document.getElementById("ataque-guerreiro")
+AtacarGuerreiro.innerText = guerreiro.ataqueGuerreiro
+const guerreiroAtacar = document.getElementById("guerreiro-atacar")
+guerreiroAtacar.addEventListener(() => {
+alert("botaaum pressionado")
+
+})
