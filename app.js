@@ -80,6 +80,7 @@ personagens.forEach(function(personagem){
 personagem.mostraStatus()
 
 })
+
 let turno = 1
 let jogadorAtual = 0
 
@@ -95,9 +96,25 @@ const vidaGuerreiro = document.getElementById("vida-guerreiro")
 vidaGuerreiro.innerText = guerreiro.vida
 
 const ataqueGuerreiro = document.getElementById("ataque-guerreiro")
-AtacarGuerreiro.innerText = guerreiro.ataqueGuerreiro
+ataqueGuerreiro.innerText = guerreiro.ataque
+
+const vidaMago = document.getElementById("vida-mago")
+vidaMago.innerText = mago.vida
+
+
 const guerreiroAtacar = document.getElementById("guerreiro-atacar")
-guerreiroAtacar.addEventListener(() => {
-alert("botaaum pressionado")
+guerreiroAtacar.addEventListener("click", () => {
+    guerreiro.causaDano(mago)
+    vidaMago.innerText = mago.vida
+})
+
+const ataqueMago = document.getElementById("ataque-mago")
+ataqueMago.innerText = mago.ataque
+
+
+const magoAtacar = document.getElementById("mago-atacar")
+magoAtacar.addEventListener("click",() => {
+mago.causaDano(guerreiro)
+vidaGuerreiro.innerText = guerreiro.vida
 
 })
